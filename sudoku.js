@@ -79,7 +79,7 @@ const y=t=>null===t||!("object"==typeof t||"function"==typeof t);class _{constru
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */function O(t){let e=V.get(t.type);void 0===e&&(e=new Map,V.set(t.type,e));let s=e.get(t.strings);return void 0===s&&(s=new u(t,t.getTemplateElement()),e.set(t.strings,s)),s}const V=new Map,A=new WeakMap,M=(t,...e)=>new g(t,e,"html",E),k=NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_COMMENT|NodeFilter.SHOW_TEXT;
+ */function O(t){let e=V.get(t.type);void 0===e&&(e=new Map,V.set(t.type,e));let s=e.get(t.strings);return void 0===s&&(s=new u(t,t.getTemplateElement()),e.set(t.strings,s)),s}const V=new Map,A=new WeakMap,k=(t,...e)=>new g(t,e,"html",E),M=NodeFilter.SHOW_ELEMENT|NodeFilter.SHOW_COMMENT|NodeFilter.SHOW_TEXT;
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -92,7 +92,7 @@ const y=t=>null===t||!("object"==typeof t||"function"==typeof t);class _{constru
  * Code distributed by Google as part of the polymer project is also
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
- */function $(t,e){const{element:{content:s},parts:i}=t,n=document.createTreeWalker(s,k,null,!1);let r=j(i),o=i[r],a=-1,l=0;const c=[];let d=null;for(;n.nextNode();){a++;const t=n.currentNode;for(t.previousSibling===d&&(d=null),e.has(t)&&(c.push(t),null===d&&(d=t)),null!==d&&l++;void 0!==o&&o.index===a;)o.index=null!==d?-1:o.index-l,o=i[r=j(i,r)]}c.forEach(t=>t.parentNode.removeChild(t))}const z=t=>{let e=t.nodeType===Node.DOCUMENT_FRAGMENT_NODE?0:1;const s=document.createTreeWalker(t,k,null,!1);for(;s.nextNode();)e++;return e},j=(t,e=-1)=>{for(let s=e+1;s<t.length;s++){const e=t[s];if(p(e))return s}return-1};
+ */function $(t,e){const{element:{content:s},parts:i}=t,n=document.createTreeWalker(s,M,null,!1);let r=j(i),o=i[r],a=-1,l=0;const c=[];let d=null;for(;n.nextNode();){a++;const t=n.currentNode;for(t.previousSibling===d&&(d=null),e.has(t)&&(c.push(t),null===d&&(d=t)),null!==d&&l++;void 0!==o&&o.index===a;)o.index=null!==d?-1:o.index-l,o=i[r=j(i,r)]}c.forEach(t=>t.parentNode.removeChild(t))}const z=t=>{let e=t.nodeType===Node.DOCUMENT_FRAGMENT_NODE?0:1;const s=document.createTreeWalker(t,M,null,!1);for(;s.nextNode();)e++;return e},j=(t,e=-1)=>{for(let s=e+1;s<t.length;s++){const e=t[s];if(p(e))return s}return-1};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -106,7 +106,7 @@ const y=t=>null===t||!("object"==typeof t||"function"==typeof t);class _{constru
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-const R=(t,e)=>`${t}--${e}`;let F=!0;void 0===window.ShadyCSS?F=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected.Please update to at least @webcomponents/webcomponentsjs@2.0.2 and@webcomponents/shadycss@1.3.1."),F=!1);const I=["html","svg"],U=new Set,q=(t,e,s)=>{U.add(s);const i=t.querySelectorAll("style");if(0===i.length)return;const n=document.createElement("style");for(let t=0;t<i.length;t++){const e=i[t];e.parentNode.removeChild(e),n.textContent+=e.textContent}if((t=>{I.forEach(e=>{const s=V.get(R(e,t));void 0!==s&&s.forEach(t=>{const{element:{content:e}}=t,s=new Set;Array.from(e.querySelectorAll("style")).forEach(t=>{s.add(t)}),$(t,s)})})})(s),function(t,e,s=null){const{element:{content:i},parts:n}=t;if(null===s||void 0===s)return void i.appendChild(e);const r=document.createTreeWalker(i,k,null,!1);let o=j(n),a=0,l=-1;for(;r.nextNode();)for(l++,r.currentNode===s&&(a=z(e),s.parentNode.insertBefore(e,s));-1!==o&&n[o].index===l;){if(a>0){for(;-1!==o;)n[o].index+=a,o=j(n,o);return}o=j(n,o)}}(e,n,e.element.content.firstChild),window.ShadyCSS.prepareTemplateStyles(e.element,s),window.ShadyCSS.nativeShadow){const s=e.element.content.querySelector("style");t.insertBefore(s.cloneNode(!0),t.firstChild)}else{e.element.content.insertBefore(n,e.element.content.firstChild);const t=new Set;t.add(n),$(e,t)}},L=t=>null!==t,B=t=>t?"":null,D=(t,e)=>e!==t&&(e==e||t==t),W={attribute:!0,type:String,reflect:!1,hasChanged:D},H=new Promise(t=>t(!0)),X=1,G=4,K=8;class Z extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=H,this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this._finalize();const t=[];for(const[e,s]of this._classProperties){const i=this._attributeNameForProperty(e,s);void 0!==i&&(this._attributeToPropertyMap.set(i,e),t.push(i))}return t}static createProperty(t,e=W){if(!this.hasOwnProperty("_classProperties")){this._classProperties=new Map;const t=Object.getPrototypeOf(this)._classProperties;void 0!==t&&t.forEach((t,e)=>this._classProperties.set(e,t))}if(this._classProperties.set(t,e),this.prototype.hasOwnProperty(t))return;const s="symbol"==typeof t?Symbol():`__${t}`;Object.defineProperty(this.prototype,t,{get(){return this[s]},set(i){const n=this[t];this[s]=i,this._requestPropertyUpdate(t,n,e)},configurable:!0,enumerable:!0})}static _finalize(){if(this.hasOwnProperty("_finalized")&&this._finalized)return;const t=Object.getPrototypeOf(this);"function"==typeof t._finalize&&t._finalize(),this._finalized=!0,this._attributeToPropertyMap=new Map;const e=this.properties,s=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const t of s)this.createProperty(t,e[t])}static _attributeNameForProperty(t,e){const s=void 0!==e&&e.attribute;return!1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}static _valueHasChanged(t,e,s=D){return s(t,e)}static _propertyValueFromAttribute(t,e){const s=e&&e.type;if(void 0===s)return t;const i=s===Boolean?L:"function"==typeof s?s:s.fromAttribute;return i?i(t):t}static _propertyValueToAttribute(t,e){if(void 0===e||void 0===e.reflect)return;return(e.type===Boolean?B:e.type&&e.type.toAttribute||String)(t)}initialize(){this.renderRoot=this.createRenderRoot(),this._saveInstanceProperties()}_saveInstanceProperties(){for(const[t]of this.constructor._classProperties)if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}}_applyInstanceProperties(){for(const[t,e]of this._instanceProperties)this[t]=e;this._instanceProperties=void 0}createRenderRoot(){return this.attachShadow({mode:"open"})}connectedCallback(){this._updateState&X?void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this):this.requestUpdate()}disconnectedCallback(){}attributeChangedCallback(t,e,s){e!==s&&this._attributeToProperty(t,s)}_propertyToAttribute(t,e,s=W){const i=this.constructor,n=i._propertyValueToAttribute(e,s);if(void 0!==n){const e=i._attributeNameForProperty(t,s);void 0!==e&&(this._updateState=this._updateState|K,null===n?this.removeAttribute(e):this.setAttribute(e,n),this._updateState=this._updateState&~K)}}_attributeToProperty(t,e){if(!(this._updateState&K)){const s=this.constructor,i=s._attributeToPropertyMap.get(t);if(void 0!==i){const t=s._classProperties.get(i);this[i]=s._propertyValueFromAttribute(e,t)}}}requestUpdate(t,e){if(void 0!==t){const s=this.constructor._classProperties.get(t)||W;return this._requestPropertyUpdate(t,e,s)}return this._invalidate()}_requestPropertyUpdate(t,e,s){return this.constructor._valueHasChanged(this[t],e,s.hasChanged)?(this._changedProperties.has(t)||this._changedProperties.set(t,e),!0===s.reflect&&(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(t,s)),this._invalidate()):this.updateComplete}async _invalidate(){if(!this._hasRequestedUpdate){let t;this._updateState=this._updateState|G;const e=this._updatePromise;this._updatePromise=new Promise(e=>t=e),await e,this._validate(),t(!this._hasRequestedUpdate)}return this.updateComplete}get _hasRequestedUpdate(){return this._updateState&G}_validate(){if(this._instanceProperties&&this._applyInstanceProperties(),this.shouldUpdate(this._changedProperties)){const t=this._changedProperties;this.update(t),this._markUpdated(),this._updateState&X||(this._updateState=this._updateState|X,this.firstUpdated(t)),this.updated(t)}else this._markUpdated()}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~G}get updateComplete(){return this._updatePromise}shouldUpdate(t){return!0}update(t){if(void 0!==this._reflectingProperties&&this._reflectingProperties.size>0){for(const[t,e]of this._reflectingProperties)this._propertyToAttribute(t,this[t],e);this._reflectingProperties=void 0}}updated(t){}firstUpdated(t){}}Z._attributeToPropertyMap=new Map,Z._finalized=!0,Z._classProperties=new Map,Z.properties={};
+const R=(t,e)=>`${t}--${e}`;let F=!0;void 0===window.ShadyCSS?F=!1:void 0===window.ShadyCSS.prepareTemplateDom&&(console.warn("Incompatible ShadyCSS version detected.Please update to at least @webcomponents/webcomponentsjs@2.0.2 and@webcomponents/shadycss@1.3.1."),F=!1);const I=["html","svg"],U=new Set,q=(t,e,s)=>{U.add(s);const i=t.querySelectorAll("style");if(0===i.length)return;const n=document.createElement("style");for(let t=0;t<i.length;t++){const e=i[t];e.parentNode.removeChild(e),n.textContent+=e.textContent}if((t=>{I.forEach(e=>{const s=V.get(R(e,t));void 0!==s&&s.forEach(t=>{const{element:{content:e}}=t,s=new Set;Array.from(e.querySelectorAll("style")).forEach(t=>{s.add(t)}),$(t,s)})})})(s),function(t,e,s=null){const{element:{content:i},parts:n}=t;if(null===s||void 0===s)return void i.appendChild(e);const r=document.createTreeWalker(i,M,null,!1);let o=j(n),a=0,l=-1;for(;r.nextNode();)for(l++,r.currentNode===s&&(a=z(e),s.parentNode.insertBefore(e,s));-1!==o&&n[o].index===l;){if(a>0){for(;-1!==o;)n[o].index+=a,o=j(n,o);return}o=j(n,o)}}(e,n,e.element.content.firstChild),window.ShadyCSS.prepareTemplateStyles(e.element,s),window.ShadyCSS.nativeShadow){const s=e.element.content.querySelector("style");t.insertBefore(s.cloneNode(!0),t.firstChild)}else{e.element.content.insertBefore(n,e.element.content.firstChild);const t=new Set;t.add(n),$(e,t)}},L=t=>null!==t,B=t=>t?"":null,D=(t,e)=>e!==t&&(e==e||t==t),W={attribute:!0,type:String,reflect:!1,hasChanged:D},H=new Promise(t=>t(!0)),X=1,G=4,K=8;class Z extends HTMLElement{constructor(){super(),this._updateState=0,this._instanceProperties=void 0,this._updatePromise=H,this._changedProperties=new Map,this._reflectingProperties=void 0,this.initialize()}static get observedAttributes(){this._finalize();const t=[];for(const[e,s]of this._classProperties){const i=this._attributeNameForProperty(e,s);void 0!==i&&(this._attributeToPropertyMap.set(i,e),t.push(i))}return t}static createProperty(t,e=W){if(!this.hasOwnProperty("_classProperties")){this._classProperties=new Map;const t=Object.getPrototypeOf(this)._classProperties;void 0!==t&&t.forEach((t,e)=>this._classProperties.set(e,t))}if(this._classProperties.set(t,e),this.prototype.hasOwnProperty(t))return;const s="symbol"==typeof t?Symbol():`__${t}`;Object.defineProperty(this.prototype,t,{get(){return this[s]},set(i){const n=this[t];this[s]=i,this._requestPropertyUpdate(t,n,e)},configurable:!0,enumerable:!0})}static _finalize(){if(this.hasOwnProperty("_finalized")&&this._finalized)return;const t=Object.getPrototypeOf(this);"function"==typeof t._finalize&&t._finalize(),this._finalized=!0,this._attributeToPropertyMap=new Map;const e=this.properties,s=[...Object.getOwnPropertyNames(e),..."function"==typeof Object.getOwnPropertySymbols?Object.getOwnPropertySymbols(e):[]];for(const t of s)this.createProperty(t,e[t])}static _attributeNameForProperty(t,e){const s=void 0!==e&&e.attribute;return!1===s?void 0:"string"==typeof s?s:"string"==typeof t?t.toLowerCase():void 0}static _valueHasChanged(t,e,s=D){return s(t,e)}static _propertyValueFromAttribute(t,e){const s=e&&e.type;if(void 0===s)return t;const i=s===Boolean?L:"function"==typeof s?s:s.fromAttribute;return i?i(t):t}static _propertyValueToAttribute(t,e){if(void 0===e||void 0===e.reflect)return;return(e.type===Boolean?B:e.type&&e.type.toAttribute||String)(t)}initialize(){this.renderRoot=this.createRenderRoot(),this._saveInstanceProperties()}_saveInstanceProperties(){for(const[t]of this.constructor._classProperties)if(this.hasOwnProperty(t)){const e=this[t];delete this[t],this._instanceProperties||(this._instanceProperties=new Map),this._instanceProperties.set(t,e)}}_applyInstanceProperties(){for(const[t,e]of this._instanceProperties)this[t]=e;this._instanceProperties=void 0}createRenderRoot(){return this.attachShadow({mode:"open"})}connectedCallback(){this._updateState&X?void 0!==window.ShadyCSS&&window.ShadyCSS.styleElement(this):this.requestUpdate()}disconnectedCallback(){}attributeChangedCallback(t,e,s){e!==s&&this._attributeToProperty(t,s)}_propertyToAttribute(t,e,s=W){const i=this.constructor,n=i._propertyValueToAttribute(e,s);if(void 0!==n){const e=i._attributeNameForProperty(t,s);void 0!==e&&(this._updateState=this._updateState|K,null===n?this.removeAttribute(e):this.setAttribute(e,n),this._updateState=this._updateState&~K)}}_attributeToProperty(t,e){if(!(this._updateState&K)){const s=this.constructor,i=s._attributeToPropertyMap.get(t);if(void 0!==i){const t=s._classProperties.get(i);this[i]=s._propertyValueFromAttribute(e,t)}}}requestUpdate(t,e){if(void 0!==t){const s=this.constructor._classProperties.get(t)||W;return this._requestPropertyUpdate(t,e,s)}return this._invalidate()}_requestPropertyUpdate(t,e,s){return this.constructor._valueHasChanged(this[t],e,s.hasChanged)?(this._changedProperties.has(t)||this._changedProperties.set(t,e),!0===s.reflect&&(void 0===this._reflectingProperties&&(this._reflectingProperties=new Map),this._reflectingProperties.set(t,s)),this._invalidate()):this.updateComplete}async _invalidate(){if(!this._hasRequestedUpdate){let t;this._updateState=this._updateState|G;const e=this._updatePromise;this._updatePromise=new Promise(e=>t=e),await e,this._validate(),t(!this._hasRequestedUpdate)}return this.updateComplete}get _hasRequestedUpdate(){return this._updateState&G}_validate(){if(this._instanceProperties&&this._applyInstanceProperties(),this.shouldUpdate(this._changedProperties)){const t=this._changedProperties;this.update(t),this._markUpdated(),this._updateState&X||(this._updateState=this._updateState|X,this.firstUpdated(t)),this.updated(t)}else this._markUpdated()}_markUpdated(){this._changedProperties=new Map,this._updateState=this._updateState&~G}get updateComplete(){return this._updatePromise}shouldUpdate(t){return!0}update(t){if(void 0!==this._reflectingProperties&&this._reflectingProperties.size>0){for(const[t,e]of this._reflectingProperties)this._propertyToAttribute(t,this[t],e);this._reflectingProperties=void 0}}updated(t){}firstUpdated(t){}}Z._attributeToPropertyMap=new Map,Z._finalized=!0,Z._classProperties=new Map,Z.properties={};
 /**
  * @license
  * Copyright (c) 2017 The Polymer Project Authors. All rights reserved.
@@ -134,7 +134,7 @@ const J=t=>e=>(window.customElements.define(t,e),e),Q=t=>(e,s)=>{e.constructor.c
  * subject to an additional IP rights grant found at
  * http://polymer.github.io/PATENTS.txt
  */
-class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof g&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this})}render(){}}function et(t,e){return 9*e+t}function st(t){let e=[];for(let s=0;s<81;s+=1)e.push(t(s));return e}function it(t,e,s,i){function n(n){return e.length>n?e[n]:void 0!==s[n]?s[n]:n===t?i:void 0}const r=n(t);if(void 0===r)return!0;const o=Math.floor(t/9),a=t%9;for(let e=9*o;e<9*o+9;e+=1)if(e!==t&&n(e)===r)return!1;for(let e=a;e<81;e+=9)if(e!==t&&n(e)===r)return!1;for(let e=0;e<3;e+=1)for(let s=0;s<3;s+=1){const i=3*Math.floor(o/3)*9+3*Math.floor(a/3)+s+9*e;if(i!==t&&n(i)===r)return!1}return!0}tt.render=((t,e,s)=>{const i=s.scopeName,n=A.has(e);if(((t,e,s)=>{let i=A.get(e);void 0===i&&(o(e,e.firstChild),A.set(e,i=new w(Object.assign({templateFactory:O},s))),i.appendInto(e)),i.setValue(t),i.commit()})(t,e,Object.assign({templateFactory:(t=>e=>{const s=R(e.type,t);let i=V.get(s);void 0===i&&(i=new Map,V.set(s,i));let n=i.get(e.strings);if(void 0===n){const s=e.getTemplateElement();F&&window.ShadyCSS.prepareTemplateDom(s,t),n=new u(e,s),i.set(e.strings,n)}return n})(i)},s)),e instanceof ShadowRoot&&F&&t instanceof g){if(!U.has(i)){const t=A.get(e).value;q(e,t.template,i)}n||window.ShadyCSS.styleElement(e.host)}});var nt=function(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,s):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,s,i);else for(var a=t.length-1;a>=0;a--)(n=t[a])&&(o=(r<3?n(o):r>3?n(e,s,o):n(e,s))||o);return r>3&&o&&Object.defineProperty(e,s,o),o};const rt=M`
+class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof g&&this.constructor.render(e,this.renderRoot,{scopeName:this.localName,eventContext:this})}render(){}}function et(t,e){return 9*e+t}function st(t){let e=[];for(let s=0;s<81;s+=1)e.push(t(s));return e}function it(t,e,s,i){function n(n){return e.length>n?e[n]:void 0!==s[n]?s[n]:n===t?i:void 0}const r=n(t);if(void 0===r)return!0;const o=Math.floor(t/9),a=t%9;for(let e=9*o;e<9*o+9;e+=1)if(e!==t&&n(e)===r)return!1;for(let e=a;e<81;e+=9)if(e!==t&&n(e)===r)return!1;for(let e=0;e<3;e+=1)for(let s=0;s<3;s+=1){const i=3*Math.floor(o/3)*9+3*Math.floor(a/3)+s+9*e;if(i!==t&&n(i)===r)return!1}return!0}tt.render=((t,e,s)=>{const i=s.scopeName,n=A.has(e);if(((t,e,s)=>{let i=A.get(e);void 0===i&&(o(e,e.firstChild),A.set(e,i=new w(Object.assign({templateFactory:O},s))),i.appendInto(e)),i.setValue(t),i.commit()})(t,e,Object.assign({templateFactory:(t=>e=>{const s=R(e.type,t);let i=V.get(s);void 0===i&&(i=new Map,V.set(s,i));let n=i.get(e.strings);if(void 0===n){const s=e.getTemplateElement();F&&window.ShadyCSS.prepareTemplateDom(s,t),n=new u(e,s),i.set(e.strings,n)}return n})(i)},s)),e instanceof ShadowRoot&&F&&t instanceof g){if(!U.has(i)){const t=A.get(e).value;q(e,t.template,i)}n||window.ShadyCSS.styleElement(e.host)}});var nt=function(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,s):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,s,i);else for(var a=t.length-1;a>=0;a--)(n=t[a])&&(o=(r<3?n(o):r>3?n(e,s,o):n(e,s))||o);return r>3&&o&&Object.defineProperty(e,s,o),o};const rt=k`
 <style>
     :host {
         --cell-size: 10vmin;
@@ -160,13 +160,38 @@ class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof 
         text-shadow: black 0 0 2vmin;
     }
 
-    :host .wrapper button.clear-grid {
-        font-size: 4vmin;
-        width: 100%;
+    :host .wrapper .button-wrapper {
+        display: flex;
         margin-top: 1vmin;
+        align-content: stretch;
+    }
+
+    :host .wrapper .button-wrapper > * {
+        flex-grow: 1;
+        font-size: 4vmin;
+        border: 0;
+        border-radius: 1vmin;
+        height: 8vmin
+    }
+
+    :host .wrapper .button-wrapper .clear-grid {
+        background: grey;
+        color: black;
+        margin-right: 0.5vmin;
+        cursor: pointer;
+    }
+
+    :host .wrapper .button-wrapper .view-source {
+        background: black;
+        color: white;
+        margin-left: 0.5vmin;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
-`;let ot=class extends tt{constructor(){super(...arguments),this.state={invalids:st(()=>!1),constraints:st(()=>void 0)},this.onCellChange=(t=>{const e=this.state.constraints.slice();e[t.index]=t.value,this.setConstraints(e)}),this.onClear=(t=>this.setConstraints(st(()=>void 0)))}setConstraints(t){const e=function(t){let e=[];for(let s=0;s<81;s+=1)e.push(!it(s,[],t));return e}(t);let s;e.every(t=>!t)&&(s=function*t(e,s=[]){if(81===s.length&&(yield s),void 0!==e[s.length])yield*t(e,s.concat(e[s.length]));else for(const i of[1,2,3,4,5,6,7,8,9])it(s.length,s,e,i)&&(yield*t(e,s.concat(i)))}(t).next().value),this.state={invalids:e,constraints:t,solution:s}}render(){return M`
+`;let ot=class extends tt{constructor(){super(...arguments),this.state={invalids:st(()=>!1),constraints:st(()=>void 0)},this.onCellChange=(t=>{const e=this.state.constraints.slice();e[t.index]=t.value,this.setConstraints(e)}),this.onClear=(t=>this.setConstraints(st(()=>void 0)))}setConstraints(t){const e=function(t){let e=[];for(let s=0;s<81;s+=1)e.push(!it(s,[],t));return e}(t);let s;e.every(t=>!t)&&(s=function*t(e,s=[]){if(81===s.length&&(yield s),void 0!==e[s.length])yield*t(e,s.concat(e[s.length]));else for(const i of[1,2,3,4,5,6,7,8,9])it(s.length,s,e,i)&&(yield*t(e,s.concat(i)))}(t).next().value),this.state={invalids:e,constraints:t,solution:s}}render(){return k`
             ${rt}
             <div class="wrapper">
                 <h2>Sudoku Solver!</h2>
@@ -178,15 +203,22 @@ class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof 
                 >
                 </sudoku-grid>
 
-                <button
-                    class="clear-grid"
-                    @click="${this.onClear}"
-                >
-                    Clear Grid
-                </button>
-
+                <div class="button-wrapper">
+                    <button
+                        class="clear-grid"
+                        @click="${this.onClear}"
+                    >
+                        Clear Grid
+                    </button>
+                    <a
+                        class="view-source"
+                        href="https://github.com/tomcumming/sudoku-solver"
+                    >
+                        View Source
+                    </a>
+                </div>
             </div>
-        `}};nt([Q()],ot.prototype,"state",void 0),ot=nt([J("sudoku-solver")],ot);var at=function(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,s):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,s,i);else for(var a=t.length-1;a>=0;a--)(n=t[a])&&(o=(r<3?n(o):r>3?n(e,s,o):n(e,s))||o);return r>3&&o&&Object.defineProperty(e,s,o),o};const lt=M`
+        `}};nt([Q()],ot.prototype,"state",void 0),ot=nt([J("sudoku-solver")],ot);var at=function(t,e,s,i){var n,r=arguments.length,o=r<3?e:null===i?i=Object.getOwnPropertyDescriptor(e,s):i;if("object"==typeof Reflect&&"function"==typeof Reflect.decorate)o=Reflect.decorate(t,e,s,i);else for(var a=t.length-1;a>=0;a--)(n=t[a])&&(o=(r<3?n(o):r>3?n(e,s,o):n(e,s))||o);return r>3&&o&&Object.defineProperty(e,s,o),o};const lt=k`
 <style>
     :host {
         --border-size: 1px; // calc(var(--cell-size) * 0.05);
@@ -233,7 +265,7 @@ class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof 
         font-size: calc(var(--cell-size) * 0.8);
     }
 </style>
-`;let ct=class extends tt{constructor(){super(...arguments),this.onInput=(t=>{const e=t.currentTarget;this.changedCell(e,e.value)}),this.onKeyDown=(t=>{t.preventDefault();const e=t.currentTarget;e.blur();parseInt(t.key);this.changedCell(e,t.key)})}changedCell(t,e){const s=parseInt(e),i=s>0&&s<10?s:void 0,n=et(Number(t.getAttribute("data-col")),Number(t.getAttribute("data-row")));this.dispatchEvent(new class extends Event{constructor(t,e){super("cellchange"),this.index=t,this.value=e}}(n,i))}render(){const t=[0,1,2,3,4,5,6,7,8].map(t=>{const e=[0,1,2,3,4,5,6,7,8].map(e=>{const s=void 0===this.constraints?void 0:this.constraints[et(e,t)],i=void 0!==this.solution?this.solution[et(e,t)].toString():"",n=void 0!==this.invalids&&this.invalids[et(e,t)];return M`
+`;let ct=class extends tt{constructor(){super(...arguments),this.onInput=(t=>{const e=t.currentTarget;this.changedCell(e,e.value)}),this.onKeyDown=(t=>{t.preventDefault();const e=t.currentTarget;e.blur();parseInt(t.key);this.changedCell(e,t.key)})}changedCell(t,e){const s=parseInt(e),i=s>0&&s<10?s:void 0,n=et(Number(t.getAttribute("data-col")),Number(t.getAttribute("data-row")));this.dispatchEvent(new class extends Event{constructor(t,e){super("cellchange"),this.index=t,this.value=e}}(n,i))}render(){const t=[0,1,2,3,4,5,6,7,8].map(t=>{const e=[0,1,2,3,4,5,6,7,8].map(e=>{const s=void 0===this.constraints?void 0:this.constraints[et(e,t)],i=void 0!==this.solution?this.solution[et(e,t)].toString():"",n=void 0!==this.invalids&&this.invalids[et(e,t)];return k`
                             <div
                                 class="cell"
                                 ?data-group-end="${e%3==2}"
@@ -251,14 +283,14 @@ class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof 
                                     placeholder="${i}"
                                     />
                             </div>
-                        `});return M`
+                        `});return k`
                     <div
                         class="row"
                         ?data-group-end="${t%3==2}"
                     >
                         ${e}
                     </div>
-                `});return M`
+                `});return k`
             ${lt}
             <div class="grid">
                 ${t}
