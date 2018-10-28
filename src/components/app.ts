@@ -31,10 +31,35 @@ const style = html`
         text-shadow: black 0 0 2vmin;
     }
 
-    :host .wrapper button.clear-grid {
-        font-size: 4vmin;
-        width: 100%;
+    :host .wrapper .button-wrapper {
+        display: flex;
         margin-top: 1vmin;
+        align-content: stretch;
+    }
+
+    :host .wrapper .button-wrapper > * {
+        flex-grow: 1;
+        font-size: 4vmin;
+        border: 0;
+        border-radius: 1vmin;
+        height: 8vmin
+    }
+
+    :host .wrapper .button-wrapper .clear-grid {
+        background: grey;
+        color: black;
+        margin-right: 0.5vmin;
+        cursor: pointer;
+    }
+
+    :host .wrapper .button-wrapper .view-source {
+        background: black;
+        color: white;
+        margin-left: 0.5vmin;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 </style>
 `;
@@ -89,13 +114,20 @@ export class Solver extends LitElement {
                 >
                 </sudoku-grid>
 
-                <button
-                    class="clear-grid"
-                    @click="${this.onClear}"
-                >
-                    Clear Grid
-                </button>
-
+                <div class="button-wrapper">
+                    <button
+                        class="clear-grid"
+                        @click="${this.onClear}"
+                    >
+                        Clear Grid
+                    </button>
+                    <a
+                        class="view-source"
+                        href="https://github.com/tomcumming/sudoku-solver"
+                    >
+                        View Source
+                    </a>
+                </div>
             </div>
         `;
     }
