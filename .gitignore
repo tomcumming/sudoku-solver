@@ -1,0 +1,3 @@
+/node_modules/
+/dist/sudoku.js
+package-lock.json
