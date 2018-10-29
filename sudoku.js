@@ -171,7 +171,8 @@ class tt extends Z{update(t){super.update(t);const e=this.render();e instanceof 
         font-size: 4vmin;
         border: 0;
         border-radius: 1vmin;
-        height: 8vmin
+        height: 8vmin;
+        font-family: "sans-serif";
     }
 
     :host .wrapper .button-wrapper .clear-grid {
