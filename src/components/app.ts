@@ -42,7 +42,8 @@ const style = html`
         font-size: 4vmin;
         border: 0;
         border-radius: 1vmin;
-        height: 8vmin
+        height: 8vmin;
+        font-family: "sans-serif";
     }
 
     :host .wrapper .button-wrapper .clear-grid {
