@@ -43,7 +43,7 @@ const style = html`
         border: 0;
         border-radius: 1vmin;
         height: 8vmin;
-        font-family: "sans-serif";
+        font-family: sans-serif;
     }
 
     :host .wrapper .button-wrapper .clear-grid {
